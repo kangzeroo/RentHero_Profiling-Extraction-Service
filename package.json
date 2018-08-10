@@ -1,0 +1,23 @@
+{
+  "name": "profiling_extraction_official",
+  "version": "1.0.0",
+  "description": "",
+  "main": "handler.js",
+  "dependencies": {
+    "aws-sdk": "2.275.1",
+    "axios": "0.18.0",
+    "fuse.js": "3.2.1",
+    "mailcomposer": "4.0.2",
+    "mailparser": "2.2.0",
+    "moment": "2.22.2"
+  },
+  "devDependencies": {
+    "eslint": "4.0.0",
+    "eslint-plugin-node": "5.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
