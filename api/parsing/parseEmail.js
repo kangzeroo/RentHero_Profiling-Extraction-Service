@@ -37,7 +37,7 @@ module.exports.parseContents = function(s3Email) {
         console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`)
         console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`)
         console.log(`>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>`)
-        return module.exports.categorizeLines(readableFormat.text)
+        return module.exports.categorizeLines(readableFormat.text || readableFormat.html)
       })
       .then((chunks) => {
         console.log(`------ Successfully extracted the contents of the email ------`)
