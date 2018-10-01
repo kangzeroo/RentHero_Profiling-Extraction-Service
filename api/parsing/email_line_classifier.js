@@ -4,7 +4,7 @@ const Fuse = require('fuse.js')
 
 
 // classifyLines()
-module.exports = function(lines) {
+module.exports = function(lines, leadChannel) {
   const p = new Promise((res, rej) => {
     const classifiedLines = lines.map((line) => {
       let lineInfo = {
@@ -38,6 +38,11 @@ module.exports = function(lines) {
       // if (lineInfo.messageScore.score < highScore && lineInfo.messageScore.score < 0.3) {
       //   lineInfo.classification = 'messageScore'
       // }
+
+      // ignore classifications and allow all
+      if (leadChannel === 'UNKNOWN') {
+        lineInfo.classification = ''
+      }
       return lineInfo
     })
     console.log('--------------')
