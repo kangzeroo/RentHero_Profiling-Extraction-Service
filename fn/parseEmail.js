@@ -12,7 +12,9 @@ module.exports = function(event, context, callback) {
   console.log(context)
   console.log('------ SES MESSAGE ID ------')
   const SES_MESSAGE_LOCATION = JSON.parse(event.body).message_location
+  const LEAD_CHANNEL = JSON.parse(event.body).lead_channel
   console.log('SES_MESSAGE_LOCATION: ', SES_MESSAGE_LOCATION)
+  console.log('LEAD_CHANNEL: ', LEAD_CHANNEL)
   // console.log('------ OVERRIDDEN ENV VARS ------')
   // console.log('api-gateway to lambda stage: ', event.requestContext.stage)
   // process.env.NODE_ENV = event.requestContext.stage
@@ -23,7 +25,7 @@ module.exports = function(event, context, callback) {
     SES_MESSAGE_LOCATION = 'agent_emails/ADSLGJ8689SDKJHFG6787HD'
   */
 
-  parserAPI.parseEmail(SES_MESSAGE_LOCATION)
+  parserAPI.parseEmail(SES_MESSAGE_LOCATION, LEAD_CHANNEL)
     .then((data) => {
       console.log('------ ALL WAS SUCCESSFUL ------')
       const response = {
