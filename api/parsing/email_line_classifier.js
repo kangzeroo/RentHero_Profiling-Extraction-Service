@@ -40,7 +40,7 @@ module.exports = function(lines, leadChannel) {
       // }
 
       // ignore classifications and allow all
-      if (leadChannel === 'UNKNOWN') {
+      if (leadChannel === 'UNKNOWN' || !leadChannel) {
         lineInfo.classification = ''
       }
       return lineInfo

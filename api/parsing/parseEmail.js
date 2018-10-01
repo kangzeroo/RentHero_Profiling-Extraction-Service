@@ -62,7 +62,15 @@ module.exports.categorizeLines = function(text, leadChannel) {
     console.log(`------ SEPERATED THE TEXT OF THE EMAIL ------`)
     const texts = text.split('\n')
     console.log(texts)
-    classifyLines(texts, leadChannel)
+    const noEmptyTexts = texts.filter((t) => {
+      return t !== ''
+    }).filter((t) => {
+      return t !== ' '
+    }).filter((t) => {
+      return /\S/.test(t)
+    })
+    console.log(noEmptyTexts)
+    classifyLines(noEmptyTexts, leadChannel)
       .then((linesAugm) => {
         // console.log(linesAugm.filter((l) => {
         //   return l.classification === 'contactInfoScore' || l.classification === 'seperaterScore' || l.classification === ''
